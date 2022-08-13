@@ -17,8 +17,9 @@ const userRoutes = require("./src/routes/userRoutes");
     })
   );
   app.use(express.json());
-  app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+  app.use(express.urlencoded({ extended: true }));
 
+  // For development use local mongodb instance instead of Atlas
   await mongoose.connect("mongodb://localhost:27017/cyberpunk");
   console.log("MongoDB Connected");
 
